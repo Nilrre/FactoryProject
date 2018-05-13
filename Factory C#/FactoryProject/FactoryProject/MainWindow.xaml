@@ -7,21 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="524">
     <StackPanel Orientation="Horizontal">
-        <StackPanel Width="131" Background="White">
-            <ComboBox x:Name="Language" Visibility="Visible">
+        <StackPanel x:Name="Stack1" Width="131">
+            <ComboBox x:Name="languageType">
                 <ComboBoxItem Content="HTML"/>
                 <ComboBoxItem Content="Java"/>
             </ComboBox>
+            <Button Click="SelectLanguage">Select Language</Button>
         </StackPanel>
-        <StackPanel Width="131" Background="White">
-            <ComboBox x:Name="Components" Visibility="Hidden">
+
+        <StackPanel x:Name="Stack2" Width="131" Visibility="Hidden">
+            <ComboBox x:Name="Components" >
                 <ComboBoxItem Content="Button"/>
                 <ComboBoxItem Content="Label"/>
                 <ComboBoxItem Content="Text Field"/>
                 <ComboBoxItem Content="Link"/>
             </ComboBox>
+            <Button Click="SelectComponent">Select Component</Button>
         </StackPanel>
-        <StackPanel Width="131" Background="White">
+
+        <StackPanel x:Name="Stack3" Width="131" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">Content:</Label>
                 <TextBox Width="74"></TextBox>
@@ -42,16 +46,16 @@
                 <Label Width="56">Height:</Label>
                 <TextBox Width="74"></TextBox>
             </StackPanel>
+            <Button Click="SaveComponent">Save Component</Button>
         </StackPanel>
-        <StackPanel Width ="131" Background="White">
+        
+        <StackPanel Width ="131">
             <ScrollViewer Height="275"  Width="131">
                 <ListBox x:Name="ComponentList">
-                    <ListBoxItem>Item</ListBoxItem>
-                    <ListBoxItem>Item</ListBoxItem>
                 </ListBox>
             </ScrollViewer>
             <Button Content="Add" Click="AddComponent"/>
-            <Button Content="Save" Click="Save"/>
+            <Button Content="Save Page" Click="SavePage"/>
         </StackPanel>
     </StackPanel>
 </Window>

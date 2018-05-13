@@ -24,15 +24,47 @@ namespace FactoryProject
         {
             InitializeComponent();
         }
+        
 
-        private void Save(object sender, RoutedEventArgs e)
+        private void SavePage(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void AddComponent(object sender, RoutedEventArgs e)
         {
+            Stack2.Visibility = Visibility.Visible;
+            Stack3.Visibility = Visibility.Hidden;
+        }
 
+        private void SelectLanguage(object sender, RoutedEventArgs e)
+        {
+            if (languageType.SelectedIndex > -1)
+            {
+                // do something with their selected language
+                Stack1.Visibility = Visibility.Hidden;
+                Stack2.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SelectComponent(object sender, RoutedEventArgs e)
+        {
+            if (Components.SelectedIndex > -1)
+            {
+                // do something with their selected component
+                Stack2.Visibility = Visibility.Hidden;
+                Stack3.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SaveComponent(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem itm = new ListBoxItem();
+            //bind data from boxes to list
+            itm.Content = "some text";
+
+            ComponentList.Items.Add(itm);
+            Stack3.Visibility = Visibility.Hidden;
         }
     }
 }
