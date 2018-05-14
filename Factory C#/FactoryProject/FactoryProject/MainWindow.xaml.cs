@@ -20,6 +20,9 @@ namespace FactoryProject
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        string Language = "";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,13 +38,19 @@ namespace FactoryProject
         {
             Stack2.Visibility = Visibility.Visible;
             Stack3.Visibility = Visibility.Hidden;
+            Components.SelectedValue = String.Empty;
+            Content.Text = string.Empty;
+            XPos.Text = string.Empty;
+            YPos.Text = string.Empty;
+            WidthText.Text = string.Empty;
+            HeightText.Text = string.Empty;
         }
 
         private void SelectLanguage(object sender, RoutedEventArgs e)
         {
             if (languageType.SelectedIndex > -1)
             {
-                // do something with their selected language
+                Language = languageType.Text;
                 Stack1.Visibility = Visibility.Hidden;
                 Stack2.Visibility = Visibility.Visible;
             }
@@ -51,7 +60,6 @@ namespace FactoryProject
         {
             if (Components.SelectedIndex > -1)
             {
-                // do something with their selected component
                 Stack2.Visibility = Visibility.Hidden;
                 Stack3.Visibility = Visibility.Visible;
             }
@@ -60,8 +68,22 @@ namespace FactoryProject
         private void SaveComponent(object sender, RoutedEventArgs e)
         {
             ListBoxItem itm = new ListBoxItem();
-            //bind data from boxes to list
-            itm.Content = "some text";
+
+            int x = 0;
+            int.TryParse(XPos.Text, out x);
+
+            int y = 0;
+            int.TryParse(YPos.Text, out y);
+
+            int width = 0;
+            int.TryParse(WidthText.Text, out width);
+
+            int height = 0;
+            int.TryParse(HeightText.Text, out height);
+
+            string content = $"Type: {Components.Text}\n     Content: {Content.Text}\n     X: {x}\n     Y: {y}\n     Width: {width}\n     Height: {height}";
+
+            itm.Content = content;
 
             ComponentList.Items.Add(itm);
             Stack3.Visibility = Visibility.Hidden;

@@ -28,23 +28,23 @@
         <StackPanel x:Name="Stack3" Width="131" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">Content:</Label>
-                <TextBox Width="74"></TextBox>
+                <TextBox x:Name="Content" Width="74"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">X-Pos:</Label>
-                <TextBox Width="74"></TextBox>
+                <TextBox x:Name="XPos" Width="74"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">Y-Pos:</Label>
-                <TextBox Width="74"></TextBox>
+                <TextBox x:Name="YPos" Width="74"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">Width:</Label>
-                <TextBox Width="74"></TextBox>
+                <TextBox x:Name="WidthText" Width="74"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Width="56">Height:</Label>
-                <TextBox Width="74"></TextBox>
+                <TextBox x:Name="HeightText" Width="74"></TextBox>
             </StackPanel>
             <Button Click="SaveComponent">Save Component</Button>
         </StackPanel>
